@@ -1,7 +1,7 @@
 package constructortest;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 import preentry.PreEntryTest;
 
 import static org.junit.Assert.assertTrue;

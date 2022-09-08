@@ -34,7 +34,6 @@ public class UserOperations {
             responseDataUser.put("email", userResponse.getUser().getEmail());
             responseDataUser.put("name", userResponse.getUser().getName());
             responseDataUser.put("password", user.getPassword());
-
             responseDataUser.put("accessToken", userResponse.getAccessToken().substring(7));
             responseDataUser.put("refreshToken", userResponse.getRefreshToken());
         }

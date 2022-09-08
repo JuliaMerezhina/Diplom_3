@@ -1,6 +1,7 @@
 package pageobject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -9,27 +10,24 @@ public class RegistrationPage {
 
     public static final String REGISTRATION_URI = "https://stellarburgers.nomoreparties.site/register";
 
-    //"Регистрация"
-    @FindBy(how = How.XPATH, using = StaticName.REGISTRATION)
-    public SelenideElement registration;
 
     //Name
     @FindBy(how = How.XPATH, using = StaticName.NAMEBUTTON)
-    public SelenideElement nameButton;
+    private SelenideElement nameButton;
 
     //Email
     @FindBy(how = How.XPATH, using = StaticName.EMAILBUTTON)
-    public SelenideElement emailButton;
+    private SelenideElement emailButton;
 
     //Password
     @FindBy(how = How.XPATH, using = StaticName.PASSWORDBUTTON)
-    public SelenideElement passwordButton;
+    private SelenideElement passwordButton;
     //Register
     @FindBy(how = How.XPATH, using = StaticName.REGISTRATIONBUTTON)
-    public SelenideElement registrationButton;
+    private SelenideElement registrationButton;
     //"Войти в аккаунт"
     @FindBy(how = How.XPATH, using = StaticName.REGISTRATIONPAGEBUTTON)
-    public SelenideElement registrationPageButton;
+    private SelenideElement registrationPageButton;
     //Password incorrect message
     @FindBy(how = How.XPATH, using = StaticName.INCORRECTPASSWORDMESSAGE)
     private SelenideElement incorrectPasswordMessage;
@@ -49,10 +47,12 @@ public class RegistrationPage {
         this.passwordButton.setValue(password);
     }
 
+    @Step("Нажать на кнопку Зарегистрироваться")
     public void clickRegistrationButton() {
         this.registrationButton.click();
     }
 
+    @Step("Заполнить форму")
     public void regFullForm(String name, String email, String password) {
         inputName(name);
         inputEmail(email);
@@ -60,6 +60,7 @@ public class RegistrationPage {
         clickRegistrationButton();
     }
 
+    @Step("Отображение сообщения об ошибке")
     public boolean isIncorrectPasswordMessage() {
         return incorrectPasswordMessage.isDisplayed();
 

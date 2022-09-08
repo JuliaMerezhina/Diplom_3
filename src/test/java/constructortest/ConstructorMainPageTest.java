@@ -1,7 +1,7 @@
 package constructortest;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 import pageobject.MainPage;
 import pageobject.ProfilePage;
 import pageobject.RegistrationPage;
@@ -26,7 +26,6 @@ public class ConstructorMainPageTest extends PreEntryTest {
         MainPage mainPage = page(MainPage.class);
         RegistrationPage registrationPage = page(RegistrationPage.class);
         ProfilePage profilePage = page(ProfilePage.class);
-
         mainPage.clickMainPageLogButton();
         registrationPage.regFullForm(userName, userEmail, userPassword);
         mainPage.clickMainPageAccountButton();

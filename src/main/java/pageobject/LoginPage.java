@@ -2,6 +2,7 @@ package pageobject;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -13,25 +14,25 @@ public class LoginPage extends ProfilePage {
 
     //"Зарегистрироваться"
     @FindBy(how = How.XPATH, using = StaticName.REGLINK)
-    public SelenideElement regLink;
+    private SelenideElement regLink;
     //Кнопка "Войти"
     @FindBy(how = How.XPATH, using = StaticName.LOGININPUT)
-    public SelenideElement loginInput;
+    private SelenideElement loginInput;
     //Текстовое поле "Вход"
     @FindBy(how = How.XPATH, using = StaticName.ENTERTEXT)
-    public SelenideElement enterText;
+    private SelenideElement enterText;
     //Email
     @FindBy(how = How.XPATH, using = StaticName.EMAILINPUT)
-    public SelenideElement emailInput;
+    private SelenideElement emailInput;
     //Password
     @FindBy(how = How.XPATH, using = StaticName.PASSWORDINPUT)
-    public SelenideElement passwordInput;
+    private SelenideElement passwordInput;
     //"Личный кабинет"
     @FindBy(how = How.XPATH, using = StaticName.ACCOUNTBUTTON)
-    public SelenideElement accountButton;
+    private SelenideElement accountButton;
     //"Забыли пароль"
     @FindBy(how = How.XPATH, using = StaticName.FORGOTPASSWORD)
-    public SelenideElement forgotPassword;
+    private SelenideElement forgotPassword;
 
 
     public void enterEmail(String email) {
@@ -55,26 +56,31 @@ public class LoginPage extends ProfilePage {
         clickEnterButton();
     }
 
+    @Step("Нажать на кнопку Зарегистрироваться")
     //"Зарегистрироваться"
     public void clickRegLink() {
         this.regLink.click();
     }
 
+    @Step("Нажать на кнопку Вход")
     //"Вход"
     public String getEnterText() {
         return this.enterText.getText();
     }
 
+    @Step("Нажать на кнопку Личный кабинет")
     //"Личный кабинет"
     public void clickProfileAccount() {
         this.accountButton.click();
     }
 
+    @Step("Нажать на кнопку Забыли пароль")
     //"Забыли пароль"
     public void clickForgotPassword() {
         this.forgotPassword.click();
     }
 
+    @Step("Нажать на кнопку Войти")
     //"Войти" - видимость кнопки
     public boolean visibleLogButton() {
         return loginInput.isDisplayed();

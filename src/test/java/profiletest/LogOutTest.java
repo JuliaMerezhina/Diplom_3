@@ -8,7 +8,6 @@ import preentry.PreEntryTest;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
@@ -23,14 +22,10 @@ public class LogOutTest extends PreEntryTest {
         String userPassword = userData.get("password");
         LoginPage loginPage = page(LoginPage.class);
         ProfilePage profilePage = page(ProfilePage.class);
-
         openMainPage.clickMainPageLogButton();
         loginPage.categoryForm(userEmail, userPassword);
         openMainPage.clickMainPageAccountButton();
-        profilePage.logout.shouldBe(enabled);
         profilePage.clickLogoutButton();
-        loginPage.loginInput.shouldBe(enabled);
-
         boolean isLoginButtonVisible = loginPage.visibleLogButton();
         assertTrue("Переход на страницу логина после выхода из личного кабинета не произошел", isLoginButtonVisible);
     }

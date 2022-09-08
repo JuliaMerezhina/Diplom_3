@@ -54,9 +54,7 @@ public class StaticName {
      * RegistrationPage
      */
 
-    static final String REGISTRATION = "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx " +
-            "button_button_size_medium__3zxIa']";
-    //ctrl + shift +u
+
     static final String NAMEBUTTON = "//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input";
     static final String EMAILBUTTON = "//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input";
     static final String PASSWORDBUTTON = ".//input[@type='password']";

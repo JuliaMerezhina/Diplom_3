@@ -21,7 +21,6 @@ public class RegistrationIncorrectUserTest extends PreEntryTest {
         RegistrationPage registrationPage = page(RegistrationPage.class);
         LoginPage loginPage = page(LoginPage.class);
         User user = User.getIncorrect();
-
         mainPage.clickMainPageAccountButton();
         loginPage.clickRegLink();
         registrationPage.regFullForm(user.getName(), user.getEmail(), user.getPassword());

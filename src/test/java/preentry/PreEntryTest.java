@@ -11,9 +11,8 @@ import static com.codeborne.selenide.Selenide.open;
 public abstract class PreEntryTest {
 
 
-    protected UserOperations userOperations = new UserOperations();
-
     public MainPage openMainPage;
+    protected UserOperations userOperations = new UserOperations();
 
     public PreEntryTest() {
     }
@@ -21,7 +20,6 @@ public abstract class PreEntryTest {
     @Before
     public void preSet() {
 
-//Configuration.timeout = 10l;
         openMainPage = open(MainPage.URI, MainPage.class);
     }
 
@@ -31,8 +29,9 @@ public abstract class PreEntryTest {
         userOperations.remove();
     }
 
+    @After
     public void closeBrowser() {
-        Selenide.closeWindow();
+        Selenide.closeWebDriver();
     }
 
 

@@ -1,6 +1,7 @@
 package pageobject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -11,27 +12,27 @@ public class MainPage {
 
     //"Войти в аккаунт"
     @FindBy(how = How.XPATH, using = StaticName.MAINPAGELOGBUTTON)
-    public SelenideElement mainPageLogButton;
+    private SelenideElement mainPageLogButton;
 
     //"Личный кабинет"
     @FindBy(how = How.XPATH, using = StaticName.MAINPAGEACCOUNTBUTTON)
-    public SelenideElement mainPageAccountButton;
+    private SelenideElement mainPageAccountButton;
 
     //"Оформить заказ"
     @FindBy(how = How.XPATH, using = StaticName.CREATEORDERBUTTON)
-    public SelenideElement createOrderButton;
+    private SelenideElement createOrderButton;
 
     //раздел "Булки"
     @FindBy(how = How.XPATH, using = StaticName.BUNSCATEGORY)
-    public SelenideElement bunsCategory; //сделать кликабельным todo
+    private SelenideElement bunsCategory; //сделать кликабельным todo
 
     //раздел "Соусы"
     @FindBy(how = How.XPATH, using = StaticName.SAUCESCATEGORY)
-    public SelenideElement saucesCategory;
+    private SelenideElement saucesCategory;
 
     //раздел "Начинки"
     @FindBy(how = How.XPATH, using = StaticName.FILLINGSCATEGORY)
-    public SelenideElement fillingsCategory;
+    private SelenideElement fillingsCategory;
 
     //Headers category
     @FindBy(how = How.XPATH, using = StaticName.BUNSHEADER)
@@ -41,14 +42,17 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = StaticName.FILLINGSHEADER)
     private SelenideElement fillingsHeader;
 
+    @Step("Нажать на кнопку Личный кабинет")
     public void clickMainPageAccountButton() {
         this.mainPageAccountButton.click();
     }
 
+    @Step("Нажать на кнопку Войти в профиль")
     public void clickMainPageLogButton() {
         this.mainPageLogButton.click();
     }
 
+    @Step("Нажать на кнопку Оформить заказ")
     public void clickCreateOrderButton() {
         this.createOrderButton.click();
     }
@@ -57,14 +61,17 @@ public class MainPage {
         return createOrderButton.isDisplayed();
     }
 
+    @Step("Переход в раздел Булки")
     public void clickBuns() {
         this.bunsCategory.click();
     }
 
+    @Step("Переход в раздел Соусы")
     public void clickSauces() {
         this.saucesCategory.click();
     }
 
+    @Step("Переход в раздел Начинки")
     public void clickFillings() {
         this.fillingsCategory.click();
     }
